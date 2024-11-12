@@ -1,0 +1,68 @@
+/* Basic Resets */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+
+.header {
+    background-image: linear-gradient(45deg, #3a3a3a, #007bff);
+    color: white;
+    padding: 40px 20px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.header p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: white
+}
+
+.headshot {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+}
+
+/* Section Styling */
+section {
+    padding: 40px 0;
+}
+
+.bg-light {
+    background-color: #f4f4f4;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+.btn-primary, .btn-info {
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover, .btn-info:hover {
+    background-color: #555;
+    border-color: #555;
+}
