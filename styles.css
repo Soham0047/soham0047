@@ -1,68 +1,483 @@
-/* Basic Resets */
-body, h1, h2, p {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+/* General Styles */
+body {
+    font-family: 'Orbitron', sans-serif;
     margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-}
-
-
-.header {
-    background-image: linear-gradient(45deg, #3a3a3a, #007bff);
-    color: white;
-    padding: 40px 20px;
-}
-
-.header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: white;
-}
-
-.header p {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: white
-}
-
-.headshot {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 6px solid #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #0e0e0e;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: 960px;
-    margin: auto;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Hero Section */
+.hero {
+    background: url('Soham.jpg') no-repeat center center / cover;
+    color: #ffffff;
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(30, 30, 46, 0.5), rgba(0, 123, 255, 0.6));
+    z-index: 1;
+    animation: glow 3s infinite alternate; /* Reduced duration for faster flicker */
+}
+
+.hero-title, .hero-subtitle, .btn {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00fffb, 0 0 20px #00fffb;
+}
+
+.hero-title .highlight {
+    color: #00fffb;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+/* Neon Button */
+/* Section Styling */
+.section {
+    padding: 80px 20px; /* Ensure sufficient padding around the content */
+    position: relative; /* Prevent clipping issues */
+    overflow: visible; /* Ensure content isn't cut off */
+}
+
+/* Floating Tiles Container */
+.floating-tiles {
+    position: relative;
+    overflow: visible; /* Ensure floating tiles and button are visible */
+}
+
+/* Button Container */
+.button-container {
+    margin-top: 30px; /* Increase space between text and button */
+    margin-bottom: 30px; /* Add extra space at the bottom */
+    text-align: center;
+}
+
+/* GitHub Button */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 25px;
+    border: none;
+    background: transparent;
+    color: #00fffb;
+    box-shadow: 0 0 5px #00fffb, 0 0 15px #00fffb, 0 0 30px #00fffb;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #00fffb, 0 0 30px #00fffb, 0 0 60px #00fffb;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .btn {
+        font-size: 0.8rem;
+        padding: 8px 16px; /* Ensure smaller buttons fit in mobile layouts */
+    }
+}
+
+
+
+/* Section */
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15, 15, 15, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar-menu {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu li {
+    margin: 0;
+    position: relative;
+}
+
+.nav-link {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #00fffb;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    background: linear-gradient(90deg, rgba(0, 255, 251, 0.7), rgba(0, 123, 255, 0.7));
+    box-shadow: 0 0 10px #00fffb, 0 0 20px #007bff;
+}
+
+.nav-link.active {
+    color: #ffffff;
+    background: linear-gradient(90deg, rgba(0, 255, 251, 0.9), rgba(0, 123, 255, 0.9));
+    box-shadow: 0 0 15px #00fffb, 0 0 30px #007bff;
 }
 
 /* Section Styling */
-section {
-    padding: 40px 0;
+/* Section Container */
+.section {
+    position: relative;
+    padding: 60px 20px;
+    margin: 40px auto; /* Add space around sections */
+    width: 90%; /* Section tile width */
+    border-radius: 15px;
+    background: rgba(2.5, 2.5, 5, 0.2); /* Dimmed background for readability */
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transform: translateZ(0); /* Ensure GPU acceleration */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.bg-light {
-    background-color: #f4f4f4;
+/* Hover Effects for Sections */
+.section:hover {
+    transform: translateY(-10px); /* Lift on hover */
+    box-shadow: 0 0 30px #00fffb, 0 0 60px #007bff; /* Glow effect */
 }
 
-/* Footer Styles */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
+/* Parallax Effect */
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 255, 251, 0.1), rgba(0, 123, 255, 0.1));
+    z-index: -1;
+    animation: parallax 15s infinite alternate linear;
 }
 
-.btn-primary, .btn-info {
-    border: none;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+#projects {
+    margin-bottom: 170px; /* Adds space between the "Projects" section and the footer */
 }
 
-.btn-primary:hover, .btn-info:hover {
-    background-color: #555;
-    border-color: #555;
+@keyframes parallax {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
 }
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0); /* Default position */
+    }
+    50% {
+        transform: translateY(-10px); /* Float up slightly */
+    }
+}
+
+/* Animated Border */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent; /* Initially transparent */
+    border-radius: 15px;
+    background: linear-gradient(90deg, #00fffb, #007bff, #00fffb); /* Glowing border */
+    background-size: 300% 300%;
+    z-index: 1;
+    animation: glowingBorder 6s infinite;
+    pointer-events: none; /* Prevent interaction with the border */
+}
+
+@keyframes glowingBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Content Inside Section */
+.section-content {
+    position: relative;
+    z-index: 2; /* Ensure content is above the animated border */
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2.5rem;
+    color: #00fffb;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00fffb, 0 0 20px #007bff;
+}
+
+/* Section Text */
+.section-text {
+    font-size: 1.8rem;
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* Floating Tiles Container */
+.floating-tiles {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.floating-tiles::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.05) 0,
+        rgba(255, 255, 255, 0.05) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    z-index: -2;
+    animation: tilesAnimation 10s linear infinite;
+}
+
+.floating-tiles::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 123, 255, 0.2));
+    z-index: -1;
+}
+
+/* Tiles Animation */
+@keyframes tilesAnimation {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(100px, 100px);
+    }
+}
+
+/* Hover Animation on Tiles */
+.floating-tiles:hover::before {
+    animation: tilesHover 3s linear infinite;
+}
+
+@keyframes tilesHover {
+    0%, 100% {
+        transform: translate(-50px, -50px);
+    }
+    50% {
+        transform: translate(50px, 50px);
+    }
+}
+
+
+/* Scroll Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section.visible {
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+/* Glow Animation */
+@keyframes glow {
+    0% {
+        background: rgba(10, 30, 46, 0.5); /* Subtle dark blue */
+    }
+    50% {
+        background: rgba(0, 123, 255, 0.6); /* Slightly lighter blue */
+    }
+    100% {
+        background: rgba(30, 30, 46, 0.5); /* Return to subtle blue */
+    }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #3586ff;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
